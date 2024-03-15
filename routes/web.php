@@ -8,11 +8,34 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['splade'])->group(function () {
+    Route::get('/', fn () => view('home'))->name('home');
+    Route::get('/docs', fn () => view('docs'))->name('docs');
+
+    //my routes protected with auth
+    Route::middleware('auth')->group(function () {
+        Route::resource('users', UsersController::class);
+        Route::resource('/logs', LogController::class);
+        Route::resource('/roles', RoleController::class);
+        Route::resource('/permissions', PermissionController::class);
+        Route::resource('/dashboard', DashboardController::class);
+    });
+
+
+    // Registers routes to support the interactive components...
+    Route::spladeWithVueBridge();
+
+    // Registers routes to support password confirmation in Form and Link components...
+    Route::spladePasswordConfirmation();
+
+    // Registers routes to support Table Bulk Actions and Exports...
+    Route::spladeTable();
+
+    // Registers routes to support async File Uploads with Filepond...
+    Route::spladeUploads();
 });
