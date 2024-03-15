@@ -33,6 +33,10 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::registerView(fn () => view('auth.register'));
 
+        Fortify::requestPasswordResetLinkView(fn () => view('auth.forgot-password'));
+
+
+
 
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);

@@ -1,5 +1,5 @@
 <x-splade-data default="{ open: false }">
-    <nav class="bg-white border-b border-gray-100">
+    <nav class="bg-white border border-gray-150 w-11/12 justify-center mx-auto rounded-3xl mt-10 ">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -10,16 +10,27 @@
                             <x-application-mark class="block h-9 w-auto" />
                         </a>
                     </div>
-
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        @auth()
+                            <a href="/">
+                                <h1 class="font-semibold text-black mt-5 text-xl">
+                                    {{ auth()->user()?->name ?: 'Guest' }}
+                                </h1>
+                            </a>
+                        @endauth
+
                         <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                             {{ __('Home') }}
                         </x-nav-link>
+                            @auth
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="block w-full px-4 py-2 text-sm text-white hover:bg-gray-100 mt-4 bg-gray-700 rounded-xl"
+                                        type="submit">Logout</button>
+                            </form>
+                            @endauth
 
-                        <x-nav-link href="{{ route('docs') }}" :active="request()->routeIs('docs')">
-                            {{ __('Documentation') }}
-                        </x-nav-link>
                     </div>
                 </div>
 
@@ -42,9 +53,6 @@
                     {{ __('Home') }}
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link href="{{ route('docs') }}" :active="request()->routeIs('docs')">
-                    {{ __('Documentation') }}
-                </x-responsive-nav-link>
             </div>
         </div>
     </nav>

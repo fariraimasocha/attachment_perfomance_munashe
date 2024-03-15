@@ -18,7 +18,8 @@
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <form>
+            <form method="post" action="{{route('register')}}">
+                @csrf
                 <div>
                     <label for="email" class="block text-sm font-medium leading-5  text-gray-700">Email address</label>
                     <div class="mt-1 relative rounded-md shadow-sm">
@@ -79,5 +80,4 @@
         </div>
     </div>
 </div>
-
 
