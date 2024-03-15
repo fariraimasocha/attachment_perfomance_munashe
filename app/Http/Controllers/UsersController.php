@@ -6,7 +6,6 @@ use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdaterequest;
 use Illuminate\Support\Collection;
 use App\Models\User;
-use ProtoneMedia\Splade\Facades\SEO;
 use ProtoneMedia\Splade\Facades\Toast;
 use ProtoneMedia\Splade\SpladeTable;
 use Spatie\Permission\Models\Role;
