@@ -1,3 +1,4 @@
+@include('layout.app')
 <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 px-6">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <img class="mx-auto h-10 w-auto" src="https://www.svgrepo.com/show/301692/login.svg" alt="Workflow">
@@ -6,13 +7,12 @@
         </h2>
         <p class="mt-2 text-center text-sm leading-5 text-blue-500 max-w">
             Or
-            <a href="#"
+            <a href="{{route('register')}}"
                class="font-medium text-blue-500 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                 create a new account
             </a>
         </p>
     </div>
-
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="text-sm leading-5">
-                        <a href="#"
+                        <a href="{{route('register')}}"
                            class="font-medium text-blue-500 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                             Forgot your password?
                         </a>

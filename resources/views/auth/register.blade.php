@@ -1,14 +1,16 @@
+@include('layout.app')
+
 <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 px-6">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <img class="mx-auto h-10 w-auto" src="https://www.svgrepo.com/show/301692/login.svg" alt="Workflow">
         <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-            Sign in to your account
+           Create an  account
         </h2>
         <p class="mt-2 text-center text-sm leading-5 text-blue-500 max-w">
             Or
-            <a href="#"
+            <a href="{{route('login')}}"
                class="font-medium text-blue-500 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                create a new account
+                log in to account
             </a>
         </p>
     </div>
@@ -32,9 +34,23 @@
                 </div>
 
                 <div class="mt-6">
+                    <label for="name" class="block text-sm font-medium leading-5 text-gray-700">name</label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="name" name="name" type="text" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                    </div>
+                </div>
+
+                <div class="mt-6">
                     <label for="password" class="block text-sm font-medium leading-5 text-gray-700">Password</label>
                     <div class="mt-1 rounded-md shadow-sm">
                         <input id="password" name="password" type="password" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <label for="password_confirmation" class="block text-sm font-medium leading-5 text-gray-700">Confirm Password</label>
+                    <div class="mt-1 rounded-md shadow-sm">
+                        <input id="password_confirmation" name="password_confirmation" type="password_confirmation" required="" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
                     </div>
                 </div>
 
@@ -63,3 +79,5 @@
         </div>
     </div>
 </div>
+
+

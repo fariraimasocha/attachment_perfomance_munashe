@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['splade'])->group(function () {
-    Route::get('/', fn () => view('home'))->name('home');
-    Route::get('/docs', fn () => view('docs'))->name('docs');
+
 
     //my routes protected with auth
     Route::middleware('auth')->group(function () {
+        Route::get('/', fn () => view('home'))->name('home');
         Route::resource('users', UsersController::class);
         Route::resource('/roles', RoleController::class);
         Route::resource('/permissions', PermissionController::class);
