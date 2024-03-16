@@ -29,7 +29,6 @@ Route::middleware(['splade'])->group(function () {
         Route::resource('/dashboard', DashboardController::class);
     });
 
-
     // Registers routes to support the interactive components...
     Route::spladeWithVueBridge();
 
