@@ -61,7 +61,6 @@
                 <x-responsive-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
-
             </div>
         </div>
     </nav>
