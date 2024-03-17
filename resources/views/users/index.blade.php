@@ -18,7 +18,7 @@
 
             @cell('role', $user)
             @foreach ($user->roles as $role)
-                <span class="text-white bg-blue1 rounded px-2 mr-1">
+                <span class="text-white bg-blue-500 rounded px-2 mr-1">
                         {{ $role->name }}
                     </span>
             @endforeach

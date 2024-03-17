@@ -84,7 +84,9 @@ class UsersController extends Controller
     {
         $user = User::create($request->validated());
 
-        $user->syncRoles($request->roles, []);
+        $user->syncRoles($request->roles, [
+
+        ]);
 
 
         Toast::title('Success!')

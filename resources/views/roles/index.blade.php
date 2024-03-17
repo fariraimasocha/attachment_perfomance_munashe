@@ -34,7 +34,7 @@
             @endcell
             @cell('permission', $role)
                 @foreach ($role->permissions as $permission)
-                    <span class="text-white bg-blue1 rounded px-2 mr-1">
+                    <span class="text-white bg-blue-500 rounded px-2 mr-1">
                         {{ $permission->name }}
                     </span>
                 @endforeach
