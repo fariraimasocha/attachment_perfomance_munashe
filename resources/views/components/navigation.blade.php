@@ -6,7 +6,7 @@
                 <div class="flex">
                     <!-- Logo -->
                     <div class="shrink-0 flex items-center">
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('home.index') }}">
                             <x-application-mark class="block h-9 w-auto" />
                         </a>
                     </div>
@@ -20,7 +20,7 @@
                             </a>
                         @endauth
 
-                        <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                        <x-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
                             {{ __('Home') }}
                         </x-nav-link>
                             <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
@@ -58,7 +58,7 @@
         <!-- Responsive Navigation Menu -->
         <div v-bind:class="{'block': data.open, 'hidden': ! data.open }" class="sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                <x-responsive-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
 
