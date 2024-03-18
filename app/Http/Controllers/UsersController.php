@@ -40,6 +40,7 @@ class UsersController extends Controller
                 'name',
                 'email',
                 'created_at',
+                'role',
                 $globalSearch,
             ])
             ->allowedSorts(['id', 'name', 'email', 'created_at'])

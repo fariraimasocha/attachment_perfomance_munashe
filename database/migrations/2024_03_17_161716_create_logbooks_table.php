@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('logbooks', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
+            $table->string('task');
+            $table->string('completed');
             $table->timestamps();
         });
     }

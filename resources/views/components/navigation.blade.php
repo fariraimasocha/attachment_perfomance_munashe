@@ -6,26 +6,31 @@
                 <div class="flex">
                     <!-- Logo -->
                     <div class="shrink-0 flex items-center">
-                        <a href="{{ route('home.index') }}">
+                        <a href="{{ route('home') }}">
                             <x-application-mark class="block h-9 w-auto" />
                         </a>
                     </div>
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         @auth()
+                            @role('Student')
                             <a href="/">
                                 <h1 class="font-semibold text-black mt-5 text-xl">
                                     {{ auth()->user()?->name ?: 'Guest' }}
                                 </h1>
                             </a>
+                            @endrole
                         @endauth
 
-                        <x-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
+
+                        <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                             {{ __('Home') }}
                         </x-nav-link>
+                            @role('Student')
                             <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                                 {{ __('Users') }}
                             </x-nav-link>
+                            @endrole
                             <x-nav-link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
                                 {{ __('Roles') }}
                             </x-nav-link>
@@ -58,7 +63,7 @@
         <!-- Responsive Navigation Menu -->
         <div v-bind:class="{'block': data.open, 'hidden': ! data.open }" class="sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
+                <x-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
             </div>
