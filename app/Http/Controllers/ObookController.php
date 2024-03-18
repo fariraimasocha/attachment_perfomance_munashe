@@ -13,7 +13,8 @@ class ObookController extends Controller
      */
     public function index()
     {
-        return view('obook.index');
+        $obooks = Obook::all();
+        return view('obook.index', compact('obooks'));
     }
 
     /**
