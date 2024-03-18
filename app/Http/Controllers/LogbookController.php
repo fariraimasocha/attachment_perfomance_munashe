@@ -13,7 +13,8 @@ class LogbookController extends Controller
      */
     public function index()
     {
-        //
+        $logbooks = Logbook::all();
+        return view('logbook.index', compact('logbooks'));
     }
 
     /**
@@ -21,7 +22,7 @@ class LogbookController extends Controller
      */
     public function create()
     {
-        //
+        return view('logbook.create');
     }
 
     /**
