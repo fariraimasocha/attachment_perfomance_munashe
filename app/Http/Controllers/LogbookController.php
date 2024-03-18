@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Logbook;
 use App\Http\Requests\StoreLogbookRequest;
 use App\Http\Requests\UpdateLogbookRequest;
+use ProtoneMedia\Splade\Facades\Toast;
 
 class LogbookController extends Controller
 {
@@ -30,7 +31,16 @@ class LogbookController extends Controller
      */
     public function store(StoreLogbookRequest $request)
     {
-        //
+        Logbook::create($request->validated());
+
+        Toast::title('Success!')
+            ->message('Log Created Successfully!')
+            ->success()
+            ->info()
+            ->leftTop()
+            ->backdrop()
+            ->autoDismiss(3);
+        return redirect()->route('logbooks.index');
     }
 
     /**
