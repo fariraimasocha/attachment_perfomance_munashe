@@ -1,5 +1,5 @@
 <x-splade-data default="{ open: false }">
-    <nav class="bg-white border border-gray-150 w-7/12 justify-center mx-auto rounded-full mt-10 ">
+    <nav class="bg-white border border-gray-150 w-8/12 justify-center mx-auto rounded-full mt-10 ">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -31,8 +31,11 @@
                                 {{ __('Users') }}
                             </x-nav-link>
 {{--                            @endrole--}}
-                            <x-nav-link href="{{ route('logbooks.index') }}" :active="request()->routeIs('logbooks.index')">
-                                {{ __('Logbook') }}
+                            <x-nav-link href="{{ route('upload.index') }}" :active="request()->routeIs('upload.index')">
+                                {{ __('Upload') }}
+                            </x-nav-link>
+                            <x-nav-link href="{{ route('obook.index') }}" :active="request()->routeIs('obook.index')">
+                                {{ __('Obook') }}
                             </x-nav-link>
                             <x-nav-link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
                                 {{ __('Roles') }}

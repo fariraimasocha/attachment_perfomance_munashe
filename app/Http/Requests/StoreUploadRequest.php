@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateLogbookRequest extends FormRequest
+class StoreUploadRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +23,7 @@ class UpdateLogbookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date' => ['required'],
-            'task' => ['required'],
-            'completed' => ['required'],
+            'name' => 'required',
         ];
     }
 }

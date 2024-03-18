@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('logbooks', function (Blueprint $table) {
+        Schema::create('obooks', function (Blueprint $table) {
             $table->id();
-            $table->string('date');
+            $table->date('date');
             $table->string('task');
-            $table->string('completed');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('logbooks');
+        Schema::dropIfExists('obooks');
     }
 };
