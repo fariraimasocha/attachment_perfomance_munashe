@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LogbookController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsersController;
@@ -28,6 +29,7 @@ Route::middleware(['splade'])->group(function () {
         Route::resource('/roles', RoleController::class);
         Route::resource('/permissions', PermissionController::class);
         Route::resource('/dashboard', DashboardController::class);
+        Route::resource('/logbooks', LogBookController::class);
     });
 
     // Registers routes to support the interactive components...
