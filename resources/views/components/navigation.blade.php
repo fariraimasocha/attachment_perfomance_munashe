@@ -13,24 +13,27 @@
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         @auth()
-                            @role('Student')
+{{--                            @role('Student')--}}
                             <a href="/">
                                 <h1 class="font-semibold text-black mt-5 text-xl">
                                     {{ auth()->user()?->name ?: 'Guest' }}
                                 </h1>
                             </a>
-                            @endrole
+{{--                            @endrole--}}
                         @endauth
 
 
                         <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                             {{ __('Home') }}
                         </x-nav-link>
-                            @role('Student')
+{{--                            @role('Student')--}}
                             <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                                 {{ __('Users') }}
                             </x-nav-link>
-                            @endrole
+{{--                            @endrole--}}
+                            <x-nav-link href="{{ route('logbooks.index') }}" :active="request()->routeIs('logbooks.index')">
+                                {{ __('Logbook') }}
+                            </x-nav-link>
                             <x-nav-link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
                                 {{ __('Roles') }}
                             </x-nav-link>
