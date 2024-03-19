@@ -3,8 +3,8 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ObookController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,8 +30,8 @@ Route::middleware(['splade'])->group(function () {
         Route::resource('/roles', RoleController::class);
         Route::resource('/permissions', PermissionController::class);
         Route::resource('/dashboard', DashboardController::class);
-        Route::resource('/upload', UploadController::class);
         Route::resource('/obook', ObookController::class );
+        Route::resource('/report', ReportController::class);
     });
 
     // Registers routes to support the interactive components...
