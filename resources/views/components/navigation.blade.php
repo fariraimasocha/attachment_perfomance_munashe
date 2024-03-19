@@ -37,6 +37,9 @@
                             <x-nav-link href="{{ route('obook.index') }}" :active="request()->routeIs('obook.index')">
                                 {{ __('Obook') }}
                             </x-nav-link>
+                            <x-nav-link href="{{ route('report.index') }}" :active="request()->routeIs('report.index')">
+                                {{ __('Files') }}
+                            </x-nav-link>
                             <x-nav-link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
                                 {{ __('Roles') }}
                             </x-nav-link>
