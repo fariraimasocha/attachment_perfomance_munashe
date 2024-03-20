@@ -24,8 +24,8 @@ Route::middleware(['splade'])->group(function () {
 
     //my routes protected with auth
     Route::middleware('auth')->group(function () {
-        Route::get('/', fn () => view('home.home'))->name('home');
-//        Route::resource('/home', DashboardController::class);
+        Route::get('/', DashboardController::class);
+        Route::resource('/dashboard', DashboardController::class);
         Route::resource('users', UsersController::class);
         Route::resource('/roles', RoleController::class);
         Route::resource('/permissions', PermissionController::class);

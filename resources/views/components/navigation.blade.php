@@ -23,17 +23,14 @@
                         @endauth
 
 
-                        <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                            {{ __('Home') }}
+                        <x-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
+                            {{ __('Dashboard') }}
                         </x-nav-link>
 {{--                            @role('Student')--}}
                             <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                                 {{ __('Users') }}
                             </x-nav-link>
 {{--                            @endrole--}}
-                            <x-nav-link href="{{ route('upload.index') }}" :active="request()->routeIs('upload.index')">
-                                {{ __('Upload') }}
-                            </x-nav-link>
                             <x-nav-link href="{{ route('obook.index') }}" :active="request()->routeIs('obook.index')">
                                 {{ __('Obook') }}
                             </x-nav-link>
@@ -53,7 +50,6 @@
                                         type="submit">Logout</button>
                             </form>
                             @endauth
-
                     </div>
                 </div>
 
