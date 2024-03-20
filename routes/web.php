@@ -31,8 +31,8 @@ Route::middleware(['splade'])->group(function () {
             return view('home');
         });
 
-        Route::get('/storage/reports/{file}', 'DashboardController@downloadReport')->name('storage.reports');
-
+        Route::get('/storage/reports/{file}', [DashboardController::class, 'downloadReport'])->name('storage.reports');
+        
 
         Route::resource('/dashboard', DashboardController::class);
         Route::resource('users', UsersController::class);
