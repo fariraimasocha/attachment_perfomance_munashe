@@ -23,9 +23,7 @@ class StoreAssessmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'description' => 'required',
-            'report' => 'required',
-            'additional' => 'required',
+
         ];
     }
 }
