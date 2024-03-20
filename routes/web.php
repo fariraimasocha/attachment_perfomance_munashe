@@ -7,6 +7,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,16 @@ Route::middleware(['splade'])->group(function () {
         Route::get('/home', function () {
             return view('home');
         });
+
+        Route::get('/storage/reports/{file}', function ($file) {
+            $path = Storage::disk('public')->path('reports/' . $file);
+            if (file_exists($path)) {
+                return response()->file($path);
+            } else {
+                abort(404);
+            }
+        })->name('storage.reports');
+
         Route::resource('/dashboard', DashboardController::class);
         Route::resource('users', UsersController::class);
         Route::resource('/roles', RoleController::class);
