@@ -26,6 +26,15 @@ class ReportController extends Controller
         return view('report.create');
     }
 
+    public function downloadReport($file)
+    {
+        $path = Storage::disk('public')->path('reports/' . $file);
+        if (file_exists($path)) {
+            return response()->file($path);
+        } else {
+            abort(404);
+        }
+    }
     /**
      * Store a newly created resource in storage.
      */
