@@ -6,7 +6,6 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UsersController;
-use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,12 +19,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('index');
+});
+
 Route::middleware(['splade'])->group(function () {
-
-
     //my routes protected with auth
     Route::middleware('auth')->group(function () {
-        Route::resource('/', WelcomeController::class);
+        Route::get('/home', function () {
+            return view('home');
+        });
         Route::resource('/dashboard', DashboardController::class);
         Route::resource('users', UsersController::class);
         Route::resource('/roles', RoleController::class);
