@@ -1,5 +1,4 @@
 <x-layout>
-
     <!doctype html>
     <html lang="en">
     <head>
@@ -23,5 +22,4 @@
     {{ $chart->script() }}
     </body>
     </html>
-
 </x-layout>

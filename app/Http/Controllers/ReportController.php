@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use App\Http\Requests\StoreReportRequest;
 use App\Http\Requests\UpdateReportRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ReportController extends Controller
 {
@@ -13,7 +14,8 @@ class ReportController extends Controller
      */
     public function index()
     {
-        return view('report.index');
+        $reports = Report::all();
+        return view('report.index' , compact('reports'));
     }
 
     /**
@@ -29,7 +31,25 @@ class ReportController extends Controller
      */
     public function store(StoreReportRequest $request)
     {
-        //
+        $directory = 'reports';
+
+        // Check if the directory exists, if not, create it
+        if (!Storage::exists($directory)) {
+            Storage::makeDirectory($directory);
+        }
+
+        $file = $request->file('report');
+
+        // Store the file with its original name in the reports directory
+        $filePath = $file->storeAs($directory, $file->getClientOriginalName());
+
+        Report::create([
+            'description' => $request->description,
+            'additional' => $request->additional,
+            'report' => $filePath,
+        ]);
+
+        return redirect()->route('report.index')->with('success', 'Report created successfully!');
     }
 
     /**

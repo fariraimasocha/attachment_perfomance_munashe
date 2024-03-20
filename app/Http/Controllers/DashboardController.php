@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $assessments = Assessment::all();
         return view('dashboard.index',
             compact('users', 'obooks', 'reports', 'assessments', 'roles', 'permissions'),
-        ['chart', $chart->build()]
+            ['chart' => $chart->build()] // key => value
         );
     }
 }
