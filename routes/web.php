@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ObookController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ReportController;
@@ -21,10 +22,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['splade'])->group(function () {
 
-
     //my routes protected with auth
     Route::middleware('auth')->group(function () {
-        Route::get('/', DashboardController::class);
+        Route::view('/', HomeController::class);
         Route::resource('/dashboard', DashboardController::class);
         Route::resource('users', UsersController::class);
         Route::resource('/roles', RoleController::class);

@@ -20,7 +20,7 @@
                     <p class="mb-2 text-xl font-bold text-gray-700 leading-none">Number: {{ $obook->id }}</p>
                     <p class="mb-2 text-base font-medium leading-none text-gray-700">{{ $obook->date }}</p>
                     <p class="mb-2 text-base leading-none text-gray-700">{{ $obook->task }}</p>
-                    <p class="text-sm leading-none text-gray-600">{{ $obook->status }}</p>
+                    <p class="text-sm leading-none text-red-700 font-bold">{{ $obook->status }}</p>
                 </div>
             @endforeach
         </div>

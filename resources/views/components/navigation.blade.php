@@ -6,7 +6,7 @@
                 <div class="flex">
                     <!-- Logo -->
                     <div class="shrink-0 flex items-center">
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('dashboard.index') }}">
                             <x-application-mark class="block h-9 w-auto" />
                         </a>
                     </div>
@@ -21,7 +21,6 @@
                             </a>
 {{--                            @endrole--}}
                         @endauth
-
 
                         <x-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
                             {{ __('Dashboard') }}
@@ -47,7 +46,9 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button class="block w-full px-4 py-2 text-sm text-white hover:bg-gray-100 mt-4 bg-gray-700 rounded-xl"
-                                        type="submit">Logout</button>
+                                        type="submit">
+                                    Logout
+                                </button>
                             </form>
                             @endauth
                     </div>
@@ -68,7 +69,7 @@
         <!-- Responsive Navigation Menu -->
         <div v-bind:class="{'block': data.open, 'hidden': ! data.open }" class="sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                <x-responsive-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
             </div>
