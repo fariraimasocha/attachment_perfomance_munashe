@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use App\Http\Requests\StoreReportRequest;
 use App\Http\Requests\UpdateReportRequest;
+use http\Client\Response;
 use Illuminate\Support\Facades\Storage;
 
 class ReportController extends Controller
@@ -29,12 +30,14 @@ class ReportController extends Controller
     public function downloadReport($file)
     {
         $path = Storage::disk('public')->path('reports/' . $file);
+
         if (file_exists($path)) {
-            return response()->file($path);
+            return response()->download($path);
         } else {
             abort(404);
         }
     }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -42,15 +45,8 @@ class ReportController extends Controller
     {
         $directory = 'reports';
 
-        // Check if the directory exists, if not, create it
-        if (!Storage::exists($directory)) {
-            Storage::makeDirectory($directory);
-        }
-
-        $file = $request->file('report');
-
-        // Store the file with its original name in the reports directory
-        $filePath = $file->storeAs($directory, $file->getClientOriginalName());
+        // Store the file in the public disk
+        $filePath = $request->file('report')->store($directory, 'public');
 
         Report::create([
             'description' => $request->description,
@@ -60,6 +56,7 @@ class ReportController extends Controller
 
         return redirect()->route('report.index')->with('success', 'Report created successfully!');
     }
+
 
     /**
      * Display the specified resource.

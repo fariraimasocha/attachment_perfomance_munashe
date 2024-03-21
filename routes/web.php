@@ -31,7 +31,9 @@ Route::middleware(['splade'])->group(function () {
 //            return view('home');
 //        });
 
-        Route::get('/storage/reports/{file}', [DashboardController::class, 'downloadReport'])->name('storage.reports');
+        Route::get('/storage/reports/{file}', [ReportController::class, 'downloadReport'])->name('storage.reports')->where('file', '(.*)');
+
+
 
 
         Route::resource('/dashboard', DashboardController::class);
@@ -41,6 +43,7 @@ Route::middleware(['splade'])->group(function () {
         Route::resource('/dashboard', DashboardController::class);
         Route::resource('/obook', ObookController::class );
         Route::resource('/report', ReportController::class);
+
     });
 
 
