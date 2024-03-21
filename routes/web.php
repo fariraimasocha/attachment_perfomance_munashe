@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ObookController;
 use App\Http\Controllers\PermissionController;
@@ -25,17 +26,8 @@ Route::get('/', function () {
 });
 
 Route::middleware(['splade'])->group(function () {
-    //my routes protected with auth
     Route::middleware('auth')->group(function () {
-//        Route::get('/home', function () {
-//            return view('home');
-//        });
-
         Route::get('/storage/reports/{file}', [ReportController::class, 'downloadReport'])->name('storage.reports')->where('file', '(.*)');
-
-
-
-
         Route::resource('/dashboard', DashboardController::class);
         Route::resource('users', UsersController::class);
         Route::resource('/roles', RoleController::class);
@@ -43,7 +35,7 @@ Route::middleware(['splade'])->group(function () {
         Route::resource('/dashboard', DashboardController::class);
         Route::resource('/obook', ObookController::class );
         Route::resource('/report', ReportController::class);
-
+        Route::resource('/assessment', AssessmentController::class);
     });
 
 
