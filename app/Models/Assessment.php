@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Assessment extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'status',
+        'date',
+        'mark'
+    ];
 }
