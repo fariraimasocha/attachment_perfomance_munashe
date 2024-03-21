@@ -29,7 +29,7 @@
 {{--                        Download Report--}}
 {{--                    </a>--}}
                     <a href="{{ url('storage/' . $report->report) }}" download class="hover:bg-gray-200 hover:text-black transition w-full mt-4 bg-gray-800 rounded h-8 px-2 text-white flex items-center justify-center">
-                        Download Report
+                        Download
                     </a>
 
                 </div>
