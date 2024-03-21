@@ -27,12 +27,12 @@ Route::get('/', function () {
 Route::middleware(['splade'])->group(function () {
     //my routes protected with auth
     Route::middleware('auth')->group(function () {
-        Route::get('/home', function () {
-            return view('home');
-        });
+//        Route::get('/home', function () {
+//            return view('home');
+//        });
 
         Route::get('/storage/reports/{file}', [DashboardController::class, 'downloadReport'])->name('storage.reports');
-        
+
 
         Route::resource('/dashboard', DashboardController::class);
         Route::resource('users', UsersController::class);

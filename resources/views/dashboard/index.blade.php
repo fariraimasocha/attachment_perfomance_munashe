@@ -1,4 +1,6 @@
-{{--<x-layout>--}}
+@include('layout.app')
+<x-layout>
+
     <!doctype html>
     <html lang="en">
     <head>
@@ -7,6 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Chart Sample</title>
         <script src="{{ $chart->cdn() }}"></script>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     </head>
     <body class="h-screen bg-gray-100">
 
@@ -23,4 +26,4 @@
     {{ $chart->script() }}
     </body>
     </html>
-{{--</x-layout>--}}
+</x-layout>
