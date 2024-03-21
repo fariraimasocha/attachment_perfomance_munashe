@@ -7,6 +7,7 @@ use App\Http\Requests\StoreReportRequest;
 use App\Http\Requests\UpdateReportRequest;
 use http\Client\Response;
 use Illuminate\Support\Facades\Storage;
+use ProtoneMedia\Splade\Facades\Toast;
 
 class ReportController extends Controller
 {
@@ -36,6 +37,8 @@ class ReportController extends Controller
         } else {
             abort(404);
         }
+
+
     }
 
     /**
@@ -54,7 +57,14 @@ class ReportController extends Controller
             'report' => $filePath,
         ]);
 
-        return redirect()->route('report.index')->with('success', 'Report created successfully!');
+        Toast::title('Success!')
+            ->message('Report Created Successfully!')
+            ->success()
+            ->info()
+            ->leftTop()
+            ->backdrop()
+            ->autoDismiss(3);
+        return redirect()->route('report.index');
     }
 
 
@@ -87,6 +97,15 @@ class ReportController extends Controller
      */
     public function destroy(Report $report)
     {
-        //
+        $report->delete();
+
+        Toast::title('Success!')
+            ->message('Report Created Successfully!')
+            ->success()
+            ->info()
+            ->leftTop()
+            ->backdrop()
+            ->autoDismiss(3);
+        return redirect()->route('report.index');
     }
 }

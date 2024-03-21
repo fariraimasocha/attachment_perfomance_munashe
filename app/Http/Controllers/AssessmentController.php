@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Assessment;
 use App\Http\Requests\StoreAssessmentRequest;
 use App\Http\Requests\UpdateAssessmentRequest;
+use ProtoneMedia\Splade\Facades\Toast;
 
 class AssessmentController extends Controller
 {
@@ -13,7 +14,9 @@ class AssessmentController extends Controller
      */
     public function index()
     {
-        //
+        $assessments = Assessment::all();
+
+        return view('assessment.index', compact('assessments'));
     }
 
     /**
@@ -21,7 +24,7 @@ class AssessmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('assessment.create');
     }
 
     /**
@@ -29,7 +32,16 @@ class AssessmentController extends Controller
      */
     public function store(StoreAssessmentRequest $request)
     {
-        //
+        Assessment::create($request->validated());
+
+        Toast::title('Success!')
+            ->message('Assessment Created Successfully!')
+            ->success()
+            ->info()
+            ->leftTop()
+            ->backdrop()
+            ->autoDismiss(3);
+        return redirect()->route('assessment.index');
     }
 
     /**
@@ -45,7 +57,8 @@ class AssessmentController extends Controller
      */
     public function edit(Assessment $assessment)
     {
-        //
+        return view('assessment.edit',
+            ['assessment' => $assessment]);
     }
 
     /**
@@ -53,7 +66,19 @@ class AssessmentController extends Controller
      */
     public function update(UpdateAssessmentRequest $request, Assessment $assessment)
     {
-        //
+        $data = $request->validated();
+
+        $assessment->update($data);
+
+        Toast::title('Success!')
+            ->message('Assessment Updated Successfully!')
+            ->success()
+            ->info()
+            ->leftTop()
+            ->backdrop()
+            ->autoDismiss(3);
+        return redirect()->route('assessment.index');
+
     }
 
     /**
@@ -61,6 +86,16 @@ class AssessmentController extends Controller
      */
     public function destroy(Assessment $assessment)
     {
-        //
+        $assessment->delete();
+
+        Toast::title('Success!')
+            ->message('Assessment Deleted Successfully!')
+            ->success()
+            ->info()
+            ->leftTop()
+            ->backdrop()
+            ->autoDismiss(3);
+        return redirect()->route('assessment.index');
+
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Obook;
 use App\Http\Requests\StoreObookRequest;
 use App\Http\Requests\UpdateObookRequest;
+use ProtoneMedia\Splade\Facades\Toast;
 
 class ObookController extends Controller
 {
@@ -31,6 +32,15 @@ class ObookController extends Controller
     public function store(StoreObookRequest $request)
     {
         Obook::create($request->validated());
+
+        Toast::title('Success!')
+            ->message('Log Entry Created Successfully!')
+            ->success()
+            ->info()
+            ->leftTop()
+            ->backdrop()
+            ->autoDismiss(3);
+        return redirect()->route('obook.index');
     }
 
     /**
@@ -62,6 +72,14 @@ class ObookController extends Controller
      */
     public function destroy(Obook $obook)
     {
-        //
+        $obook->delete();
+        Toast::title('Success!')
+            ->message('Log Entry Deleted Successfully!')
+            ->success()
+            ->info()
+            ->leftTop()
+            ->backdrop()
+            ->autoDismiss(3);
+        return redirect()->route('obook.index');
     }
 }

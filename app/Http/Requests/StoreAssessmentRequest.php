@@ -27,7 +27,7 @@ class StoreAssessmentRequest extends FormRequest
             'description' => 'required',
             'status' => 'required',
             'date' => 'required',
-            'mark' => 'required',
+            'mark' => 'nullable',
         ];
     }
 }
