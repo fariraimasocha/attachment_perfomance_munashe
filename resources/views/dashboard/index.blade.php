@@ -1,4 +1,4 @@
-<x-layout>
+{{--<x-layout>--}}
     <!doctype html>
     <html lang="en">
     <head>
@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Chart Sample</title>
+        <script src="{{ $chart->cdn() }}"></script>
     </head>
     <body class="h-screen bg-gray-100">
 
@@ -22,4 +23,4 @@
     {{ $chart->script() }}
     </body>
     </html>
-</x-layout>
+{{--</x-layout>--}}
