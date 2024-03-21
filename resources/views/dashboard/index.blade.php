@@ -68,7 +68,7 @@
         </div>
     </div>
     <div
-        class="flex flex-col items-center w-10/12 p-6 pb-6 bg-white rounded-lg shadow-xl justify-center mx-auto mt-20 px-20 border">
+        class="flex flex-col items-center w-10/12 p-6 pb-6 bg-white rounded-lg shadow-xl justify-center mx-auto mt-10 px-20 border">
         <h2 class="text-xl font-bold">Monthly Users</h2>
         <span class="text-sm font-semibold text-gray-500">2024</span>
         <div class="flex items-end flex-grow w-full mt-2 space-x-2 sm:space-x-3">
