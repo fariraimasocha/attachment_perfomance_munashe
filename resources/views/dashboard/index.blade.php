@@ -67,11 +67,10 @@
             </h1>
         </div>
     </div>
-
     <div
-        class="flex flex-col items-center w-10/12 p-6 pb-6 bg-white rounded-lg shadow-xl justify-center mx-auto mt-20 px-20">
+        class="flex flex-col items-center w-10/12 p-6 pb-6 bg-white rounded-lg shadow-xl justify-center mx-auto mt-20 px-20 border">
         <h2 class="text-xl font-bold">Monthly Users</h2>
-        <span class="text-sm font-semibold text-gray-500">2023</span>
+        <span class="text-sm font-semibold text-gray-500">2024</span>
         <div class="flex items-end flex-grow w-full mt-2 space-x-2 sm:space-x-3">
             @foreach ($users as $user)
                 <div class="relative flex flex-col items-center flex-grow pb-5 group">
@@ -91,6 +90,31 @@
                 <span class="block w-4 h-4 bg-indigo-400"></span>
                 <span class="ml-1 text-xs font-medium">All</span>
             </div>
+        </div>
+    </div>
+    <div
+        class="flex flex-col items-center w-10/12 p-6 pb-6 bg-white rounded-lg shadow-xl justify-center mx-auto mt-20 px-20 border">
+        <h2 class="text-xl font-bold">Monthly Reports</h2>
+        <span class="text-sm font-semibold text-gray-500">2023</span>
+        <div class="flex items-end flex-grow w-full mt-2 space-x-2 sm:space-x-3">
+            @foreach ($reports as $project)
+                <div class="relative flex flex-col items-center flex-grow pb-5 group">
+                         <span class="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
+                             {{ $project->count() }}
+                         </span>
+                    <div class="relative flex justify-center w-full h-8">
+                        <div class="h-full bg-indigo-200">{{ $project->description }}</div>
+                        <div class="h-full bg-transparent border border-indigo-400">{{ $project->id }}</div>
+                    </div>
+                    <span class="absolute bottom-0 text-xs font-bold">{{ $project->created_at }}</span>
+                </div>
+            @endforeach
+        </div>
+        <div class="flex w-full mt-3">
+            <div class="flex items-center ml-auto">
+                <span class="block w-4 h-4 bg-indigo-400"></span>
+                <span class="ml-1 text-xs font-medium">All</span>
+            </div>
             <div class="flex items-center ml-4">
                 <span class="block w-4 h-4 bg-transparent border border-indigo-400"></span>
                 <span class="ml-1 text-xs font-medium">Completed</span>
@@ -101,5 +125,6 @@
             </div>
         </div>
     </div>
+
 
 </x-layout>
