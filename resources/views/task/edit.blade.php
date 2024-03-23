@@ -1,5 +1,6 @@
 <x-layout>
-    <x-splade-form :action="route('task.store')" class="justify-center w-full px-5 py-5 mx-auto mt-16 space-y-4 bg-white md:w-4/12">
+    <x-splade-form confirm="are you sure" :default="$task" :action="route('task.update', $task)" method="PUT"
+                   class="w-full md:w-4/12 justify-center mx-auto mt-16 space-y-4 px-5 py-5 bg-white">
         <h1 class="text-xl font-semibold text-center">Create</h1>
         <x-splade-input type="text" name="name" label="Name" class="w-full" />
         <x-splade-textarea type="text" name="description" label="Description" class="w-full" />
