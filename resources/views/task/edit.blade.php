@@ -9,6 +9,7 @@
             <option value="approved">Approved</option>
         </x-splade-select>
         <x-splade-input type="text" name="leftover" label="Leftover" class="w-full" />
+
         <x-splade-submit
             class="w-full h-10 px-2 mt-3 font-sans font-semibold text-white transition bg-gray-800 rounded hover:bg-gray-200 hover:text-black md:w-28"
             :spinner="true" />

@@ -23,6 +23,22 @@
                     <p class="text-sm leading-none text-red-700 font-bold">Date: {{ $task->created_at }}</p>
                     <p class="text-sm leading-none text-red-700 font-bold mt-1">Status: {{ $task->status }}</p>
                     <p class="text-sm leading-none text-red-700 font-bold mt-1">Mark: {{ $task->leftover }}</p>
+                    <div class="flex space-x-4 mt-2">
+                        <Link href="{{ route('task.edit', $task->id) }}"
+                              class="font-semibold text-white hover:text-white hover:bg-blue-800 bg-blue-500 py-1 px-1 rounded w-16 text-center">
+                            Edit
+                        </Link>
+                        <form action="{{ route('task.destroy', $task->id) }}" method="POST"
+                              onsubmit="return confirm('Are you sure you want to delete this task?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                    class="font-semibold text-white hover:text-white hover:bg-gray-900 bg-red-500 py-1 px-1 rounded w-16">
+                                Delete
+                            </button>
+                        </form>
+
+                    </div>
                 </div>
             @endforeach
         </div>
