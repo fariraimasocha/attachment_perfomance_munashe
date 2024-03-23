@@ -6,6 +6,7 @@ use App\Http\Controllers\ObookController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
@@ -36,6 +37,7 @@ Route::middleware(['splade'])->group(function () {
         Route::resource('/obook', ObookController::class );
         Route::resource('/report', ReportController::class);
         Route::resource('/assessment', AssessmentController::class);
+        Route::resource('/task', TaskController::class);
     });
 
 
