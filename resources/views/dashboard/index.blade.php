@@ -92,37 +92,37 @@
             </div>
         </div>
     </div>
-    <div
-        class="flex flex-col items-center w-10/12 p-6 pb-6 bg-white rounded-lg shadow-xl justify-center mx-auto mt-20 px-20 border">
+    <div class="flex flex-col items-center w-10/12 p-6 pb-6 bg-white rounded-lg shadow-xl justify-center mx-auto mt-20 px-20 border">
         <h2 class="text-xl font-bold">Monthly Reports</h2>
         <span class="text-sm font-semibold text-gray-500">2023</span>
         <div class="flex items-end flex-grow w-full mt-2 space-x-2 sm:space-x-3">
             @foreach ($reports as $project)
                 <div class="relative flex flex-col items-center flex-grow pb-5 group">
-                         <span class="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
-                             {{ $project->count() }}
-                         </span>
-                    <div class="relative flex justify-center w-full h-8">
-                        <div class="h-full bg-indigo-200">{{ $project->description }}</div>
-                        <div class="h-full bg-transparent border border-indigo-400">{{ $project->id }}</div>
+                    <span class="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
+                        {{ $project->count }}
+                    </span>
+                    <div class="relative flex justify-center w-full h-8 bg-indigo-200">
+                        <span class="absolute">{{ $project->description }}</span>
                     </div>
-                    <span class="absolute bottom-0 text-xs font-bold">{{ $project->created_at }}</span>
+                    <div class="relative flex justify-center w-full h-{{ $project->height }} bg-indigo-400"></div>
+                    <span class="absolute bottom-0 text-xs font-bold">{{ $project->created_at->format('M') }}</span>
                 </div>
             @endforeach
         </div>
         <div class="flex w-full mt-3">
             <div class="flex items-center ml-auto">
                 <span class="block w-4 h-4 bg-indigo-400"></span>
-                <span class="ml-1 text-xs font-medium">All</span>
+                <span class="ml-1 text-xs font-medium">Existing</span>
             </div>
             <div class="flex items-center ml-4">
-                <span class="block w-4 h-4 bg-transparent border border-indigo-400"></span>
-                <span class="ml-1 text-xs font-medium">Completed</span>
+                <span class="block w-4 h-4 bg-indigo-300"></span>
+                <span class="ml-1 text-xs font-medium">Upgrades</span>
             </div>
             <div class="flex items-center ml-4">
                 <span class="block w-4 h-4 bg-indigo-200"></span>
-                <span class="ml-1 text-xs font-medium">Pending</span>
+                <span class="ml-1 text-xs font-medium">New</span>
             </div>
         </div>
     </div>
+
 </x-layout>
