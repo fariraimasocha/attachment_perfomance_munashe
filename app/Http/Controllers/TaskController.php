@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Charts\UsersChart;
+
 use App\Models\Task;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+use ProtoneMedia\Splade\Facades\Toast;
 
 class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(UsersChart $chart)
+    public function index()
     {
-      //
+        $tasks = Task::all();
+      return view('task.index');
     }
 
     /**
@@ -22,7 +24,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('task.create');
     }
 
     /**
@@ -30,7 +32,17 @@ class TaskController extends Controller
      */
     public function store(StoreTaskRequest $request)
     {
-        //
+        Task::create($request->validated());
+
+        Toast::title('Success!')
+            ->message('Task Created Successfully!')
+            ->success()
+            ->info()
+            ->leftTop()
+            ->backdrop()
+            ->autoDismiss(3);
+        return redirect()->route('task.index');
+
     }
 
     /**
@@ -46,7 +58,8 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        return view('task.edit',
+            ['task' => $task]);
     }
 
     /**
@@ -54,7 +67,19 @@ class TaskController extends Controller
      */
     public function update(UpdateTaskRequest $request, Task $task)
     {
-        //
+        $data = $request->validated();
+
+        $task->update($data);
+
+        Toast::title('Success!')
+            ->message('Task Edited Successfully!')
+            ->success()
+            ->info()
+            ->leftTop()
+            ->backdrop()
+            ->autoDismiss(3);
+        return redirect()->route('task.index');
+
     }
 
     /**
@@ -62,6 +87,15 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+
+        Toast::title('Success!')
+            ->message('Task Deleted Successfully!')
+            ->success()
+            ->info()
+            ->leftTop()
+            ->backdrop()
+            ->autoDismiss(3);
+        return redirect()->route('task.index');
     }
 }
