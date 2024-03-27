@@ -17,5 +17,5 @@
         </div>
     </div>
 
-    <img src="{{ asset('images/fox.png') }}" alt="" width="30%" height="20%" class="rounded-lg">
+    <img src="{{ asset('images/fox.png') }}" alt="" width="20%" height="10%" class="rounded-lg">
 </div>
