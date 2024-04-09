@@ -28,6 +28,33 @@
             </h1>
         </div>
 
+        @php
+            $totalTasks = \App\Models\Task::count();
+        @endphp
+
+        <div class="bg-blue1 w-2/12 rounded py-3 hover:bg-black1 transition">
+            <p class="text-white text-center">
+                Total Logs
+            </p>
+            <h1 class="text-white text-center text-2xl font-semi">
+                {{ $totalTasks }}
+            </h1>
+        </div>
+
+        @php
+            $totalAssessments = \App\Models\Assessment::count();
+        @endphp
+
+        <div class="bg-blue1 w-2/12 rounded py-3 hover:bg-black1 transition">
+            <p class="text-white text-center">
+                Total Logs
+            </p>
+            <h1 class="text-white text-center text-2xl font-semi">
+                {{ $totalAssessments }}
+            </h1>
+        </div>
+
+
 
     </div>
     <div
