@@ -59,16 +59,16 @@
     </div>
     <div
         class="flex flex-col items-center w-10/12 p-6 pb-6 bg-white rounded-lg shadow-xl justify-center mx-auto mt-10 px-20 border">
-        <h2 class="text-xl font-bold">Monthly Users</h2>
+        <h2 class="text-xl font-bold">My Assessments</h2>
         <span class="text-sm font-semibold text-gray-500">2024</span>
         <div class="flex items-end flex-grow w-full mt-2 space-x-2 sm:space-x-3">
-            @foreach ($users as $user)
+            @foreach ($assessments as $user)
                 <div class="relative flex flex-col items-center flex-grow pb-5 group">
                          <span class="absolute top-0 hidden -mt-6 text-xs font-bold group-hover:block">
                              {{ $user->count() }}
                          </span>
                     <div class="relative flex justify-center w-full h-8">
-                        <div class="h-full bg-indigo-200">{{ $user->name }}</div>
+                        <div class="h-full bg-indigo-200">{{ $user->status }}</div>
                         <div class="h-full bg-transparent border border-indigo-400">{{ $user->id }}</div>
                     </div>
                     <span class="absolute bottom-0 text-xs font-bold">{{ $user->created_at }}</span>
@@ -83,7 +83,7 @@
         </div>
     </div>
     <div class="flex flex-col items-center w-10/12 p-6 pb-6 bg-white rounded-lg shadow-xl justify-center mx-auto mt-20 px-20 border">
-        <h2 class="text-xl font-bold">Monthly Reports</h2>
+        <h2 class="text-xl font-bold">My Reports Submitted</h2>
         <span class="text-sm font-semibold text-gray-500">2023</span>
         <div class="flex items-end flex-grow w-full mt-2 space-x-2 sm:space-x-3">
             @foreach ($reports as $project)
