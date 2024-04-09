@@ -28,32 +28,7 @@
             </h1>
         </div>
 
-        @php
-            $totalPermissions= Spatie\Permission\Models\Permission::count();
-        @endphp
 
-        <div class="bg-blue1 w-2/12 rounded py-3 hover:bg-black1 transition">
-            <p class="text-white text-center">
-                Total Permissions
-            </p>
-            <h1 class="text-white text-center text-2xl font-semi">
-                {{ $totalPermissions }}
-            </h1>
-        </div>
-
-
-        @php
-            $totalRoles = Spatie\Permission\Models\Role::count();
-        @endphp
-
-        <div class="bg-blue1 w-2/12 rounded py-3 hover:bg-black1 transition">
-            <p class="text-white text-center">
-                Total Roles
-            </p>
-            <h1 class="text-white text-center text-2xl font-semi">
-                {{ $totalRoles }}
-            </h1>
-        </div>
     </div>
     <div
         class="flex flex-col items-center w-10/12 p-6 pb-6 bg-white rounded-lg shadow-xl justify-center mx-auto mt-10 px-20 border">
