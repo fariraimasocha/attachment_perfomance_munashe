@@ -7,7 +7,7 @@
 
         <div class="bg-blue1 w-2/12 rounded py-3 hover:bg-black1 transition">
             <p class="text-white text-center">
-                Total Logs
+                Total tasks
             </p>
             <h1 class="text-white text-center text-2xl font-semi">
                 {{ $totalObooks }}
@@ -47,7 +47,7 @@
 
         <div class="bg-blue1 w-2/12 rounded py-3 hover:bg-black1 transition">
             <p class="text-white text-center">
-                Total Logs
+                Total Assessments
             </p>
             <h1 class="text-white text-center text-2xl font-semi">
                 {{ $totalAssessments }}
