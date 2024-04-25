@@ -1,6 +1,6 @@
 <x-layout>
-    <h1 class="font-bold text-2xl text-center mt-8">WELCOME TO E ATTACHMENT</h1>
-    <div class="justify-center mx-auto w-11/12">
-        <img src="{{ asset('images/slider.jpg') }}" class="object-cover w-full h-full rounded-lg" alt="Slide 1">
+    <div class="justify-center items-center">
+        <h1 class="mt-8 text-4xl text-center font-thin">Welcome to E Attachment</h1>
+        <img src="{{ asset('images/slider.jpg') }}" class="mt-8 justify-center mx-auto w-11/12 rounded-lg" alt="Slide 1">
     </div>
 </x-layout>
