@@ -1,5 +1,5 @@
 <x-splade-data default="{ open: false }">
-    <nav class="bg-white border border-gray-150 w-10/12 justify-center mx-auto rounded-full mt-10 ">
+    <nav class="bg-white border border-gray-150 w-11/12 justify-center mx-auto rounded-full mt-10 ">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -19,6 +19,9 @@
                                 </h1>
                             </a>
                         @endauth
+                            <x-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
+                                {{ __('Home') }}
+                            </x-nav-link>
 {{--                            @role('Super Admin')--}}
                            <x-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
                               {{ __('Dashboard') }}
