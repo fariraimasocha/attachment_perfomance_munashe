@@ -54,8 +54,6 @@
             </h1>
         </div>
 
-
-
     </div>
     <div
         class="flex flex-col items-center w-10/12 p-6 pb-6 bg-white rounded-lg shadow-xl justify-center mx-auto mt-10 px-20 border">

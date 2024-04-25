@@ -7,12 +7,14 @@
                     All
                 </button>
             </a>
+            @if(auth()->user()->hasPermissionTo('edit user'))
             <a href="{{ route('task.create') }}">
                 <button
                     class="hover:bg-gray-200 hover:text-black transition w-28 bg-gray-800 rounded h-8 px-2 text-white">
                     Create
                 </button>
             </a>
+            @endif
         </div>
         <div class="grid justify-center grid-cols-1 gap-4 mx-auto mt-8 md:grid-cols-2 lg:grid-cols-3">
             @foreach ($tasks as $task)

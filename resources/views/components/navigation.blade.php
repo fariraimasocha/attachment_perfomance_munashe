@@ -19,13 +19,16 @@
                                 </h1>
                             </a>
                         @endauth
-{{--                        @role('Super-Admin')--}}
+{{--                            @role('Super Admin')--}}
                            <x-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
                               {{ __('Dashboard') }}
                             </x-nav-link>
+{{--                            @endrole--}}
+                            @if(auth()->user()->hasPermissionTo('edit user'))
                             <x-nav-link href="{{ route('userdash.index') }}" :active="request()->routeIs('userdash.index')">
                                 {{ __('My Dash') }}
                             </x-nav-link>
+                            @endif
                             <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                                 {{ __('Users') }}
                             </x-nav-link>
@@ -47,7 +50,6 @@
                             <x-nav-link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
                                 {{ __('Roles') }}
                             </x-nav-link>
-
                             <x-nav-link href="{{ route('permissions.index') }}" :active="request()->routeIs('permissions.index')">
                                 {{ __('Permissions') }}
                             </x-nav-link>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ObookController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ReportController;
@@ -40,8 +41,8 @@ Route::middleware(['splade'])->group(function () {
         Route::resource('/assessment', AssessmentController::class);
         Route::resource('/task', TaskController::class);
         Route::resource('/userdash', UserDashboardController::class);
+        Route::resource('/home', HomeController::class);
     });
-
 
     Route::spladeWithVueBridge();
     Route::spladePasswordConfirmation();

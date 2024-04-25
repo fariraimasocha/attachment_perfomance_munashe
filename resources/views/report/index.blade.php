@@ -3,13 +3,13 @@
         <div class="flex space-x-2">
             <a href="{{ route('report.index') }}">
                 <button
-                    class="hover:bg-gray-200 hover:text-black transition w-28 bg-gray-800 rounded h-8 px-2 text-white">
+                    class="hover:bg-gray-200 hover:text-black transition w-32 bg-gray-800 rounded h-8 px-2 text-white">
                     All reports
                 </button>
             </a>
             <a href="{{ route('report.create') }}">
                 <button
-                    class="hover:bg-gray-200 hover:text-black transition w-28 bg-gray-800 rounded h-8 px-2 text-white">
+                    class="hover:bg-gray-200 hover:text-black transition w-32 bg-gray-800 rounded h-8 px-2 text-white">
                     Create report
                 </button>
             </a>
